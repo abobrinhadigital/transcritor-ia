@@ -1,4 +1,4 @@
-# Transcritor IA
+# Tomatextor
 
 Script Python para transcrição automática de arquivos de áudio utilizando **Faster-Whisper**. Otimizado para rodar localmente com aceleração por hardware (NVIDIA CUDA).
 
@@ -25,8 +25,8 @@ yay -S cuda cudnn ffmpeg
 
 1. **Clone o repositório e acesse a pasta:**
 ```bash
-git clone https://github.com/abobrinhadigital/transcritor-ia.git
-cd transcritor-ia
+git clone https://github.com/abobrinhadigital/tomatextor.git
+cd tomatextor
 ```
 2. **Crie e prepare o ambiente virtual:**
 ```fish
@@ -52,8 +52,8 @@ O script lerá este arquivo automaticamente e o usará como `initial_prompt` par
 1. Coloque seus arquivos `.mp3` dentro da pasta `audios/`.
 2. Execute o script via shell a partir da raiz do projeto:
 ```fish
-chmod +x transcrever.sh
-./transcrever.sh
+chmod +x tomatextor.sh
+./tomatextor.sh
 ```
 
 <br/>

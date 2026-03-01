@@ -5,7 +5,7 @@ if test -f "venv/bin/activate.fish"
     source venv/bin/activate.fish
     
     # Executa o script
-    python transcrever.py $argv
+    python tomatextor.py $argv
     
     deactivate
 else
