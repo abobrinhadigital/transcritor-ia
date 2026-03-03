@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-03-03
+
+### Added
+- Modelo Whisper agora é configurável via variável `WHISPER_MODEL_SIZE` no `.env`.
+- Upgrade do modelo padrão para `turbo` (mais rápido e inteligente para contextos mistos).
+- Otimização do `initial_prompt` com contexto fixo de tecnologia para melhorar a precisão de termos técnicos (ex: "vibe code").
+
 ## [2.2.0] - 2026-03-03
 
 ### Added

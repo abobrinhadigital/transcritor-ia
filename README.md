@@ -1,5 +1,5 @@
 # Tomatextor
-> **Versão:** `v2.2.0`
+> **Versão:** `v2.3.0`
 
 Script Python para transcrição automática de arquivos de áudio utilizando **Faster-Whisper**. Otimizado para rodar localmente com aceleração por hardware (NVIDIA CUDA).
 
@@ -60,11 +60,13 @@ O Tomatextor usa um arquivo `.env` para gerenciar os caminhos das pastas. Isso p
 NEW_AUDIO_DIR="/home/usuario/audios/novos"
 HISTORY_AUDIO_DIR="/home/usuario/audios/processados"
 NEW_TRANSCRIPTION_DIR="/home/usuario/transcricoes/novas"
+WHISPER_MODEL_SIZE="turbo"
 ```
 
 *   `NEW_AUDIO_DIR`: Onde o script procura novos áudios.
 *   `HISTORY_AUDIO_DIR`: Para onde os áudios processados são movidos.
 *   `NEW_TRANSCRIPTION_DIR`: Onde as transcrições `.txt` são salvas.
+*   `WHISPER_MODEL_SIZE`: O modelo do Whisper (ex: `tiny`, `base`, `small`, `medium`, `large-v3`, `turbo`). Padrão: `turbo`.
 
 > [!NOTE]
 > Se você não fornecer um `.env`, o script usará as pastas padrões `audios/`, `audios/processados/` e `transcricoes/`.

@@ -5,11 +5,7 @@ import shutil
 import torch
 from faster_whisper import WhisperModel
 
-__version__ = "2.2.0"
-
-# Carregando bibliotecas da Nvidia (Otimizado para RTX 3050)
-model_size = "turbo"
-model = WhisperModel(model_size, device="cuda", compute_type="float16")
+__version__ = "2.3.0"
 
 # Carrega configurações do arquivo .env (Manual para evitar dependências extras)
 config = {}
@@ -26,10 +22,16 @@ if os.path.exists(caminho_env):
                     valor = valor[1:-1]
                 config[chave.strip()] = valor
 
-# Define as pastas do projeto (Pega do .env ou usa padrões seguros)
+# Define as pastas e configurações (Pega do .env ou usa padrões seguros)
 pasta_audios = config.get("NEW_AUDIO_DIR", "audios")
 pasta_processados = config.get("HISTORY_AUDIO_DIR", os.path.join(pasta_audios, "processados"))
 pasta_transcricoes = config.get("NEW_TRANSCRIPTION_DIR", "transcricoes")
+model_size = config.get("WHISPER_MODEL_SIZE", "turbo")
+
+# Carregando bibliotecas da Nvidia (Otimizado para GPUs RTX)
+model = WhisperModel(model_size, device="cuda", compute_type="float16")
+
+# Cria as pastas caso elas ainda não existam
 
 # Cria as pastas caso elas ainda não existam
 os.makedirs(pasta_processados, exist_ok=True)
