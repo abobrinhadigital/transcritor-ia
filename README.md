@@ -1,10 +1,11 @@
 # Tomatextor
+> **Versão:** `v2.1.0`
 
 Script Python para transcrição automática de arquivos de áudio utilizando **Faster-Whisper**. Otimizado para rodar localmente com aceleração por hardware (NVIDIA CUDA).
 
 ## Funcionalidades
 
-* **Foco em MP3:** Processamento otimizado para arquivos `.mp3`.
+* **Múltiplos Formatos:** Processamento otimizado para arquivos `.mp3` e `.m4a`.
 * **Entrada e Saída Organizadas:** Áudios lidos da pasta `audios/` e transcrições salvas automaticamente na pasta `transcricoes/`, mantendo o código isolado.
 * **Aceleração por GPU:** Utiliza núcleos CUDA para máxima velocidade.
 
@@ -49,7 +50,7 @@ O script lerá este arquivo automaticamente e o usará como `initial_prompt` par
 
 ## Como Usar
 
-1. Coloque seus arquivos `.mp3` dentro da pasta `audios/`.
+1. Coloque seus arquivos `.mp3` ou `.m4a` dentro da pasta `audios/`.
 2. Execute o script via shell a partir da raiz do projeto:
 ```fish
 chmod +x tomatextor.sh

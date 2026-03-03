@@ -1,9 +1,11 @@
+import datetime
 import glob
 import os
 import shutil
 import torch
 from faster_whisper import WhisperModel
-import datetime
+
+__version__ = "2.1.0"
 
 # Carregando bibliotecas da Nvidia (Otimizado para RTX 3050)
 model_size = "medium"
@@ -18,11 +20,14 @@ pasta_transcricoes = "transcricoes"
 os.makedirs(pasta_processados, exist_ok=True)
 os.makedirs(pasta_transcricoes, exist_ok=True)
 
-# Busca todos os arquivos .mp3 na pasta audios/ (ignora os que já estão em processados/)
-arquivos = glob.glob(os.path.join(pasta_audios, "*.mp3"))
+# Busca todos os arquivos .mp3 e .m4a na pasta audios/ (ignora os que já estão em processados/)
+formatos = ["*.mp3", "*.m4a"]
+arquivos = []
+for formato in formatos:
+    arquivos.extend(glob.glob(os.path.join(pasta_audios, formato)))
 
 if not arquivos:
-    print(f"Nenhum arquivo .mp3 novo encontrado na pasta {pasta_audios}/")
+    print(f"Nenhum arquivo de áudio novo (.mp3 ou .m4a) encontrado na pasta {pasta_audios}/")
     exit()
 
 print(f"Encontrado(s) {len(arquivos)} arquivo(s) para processar.\n")
