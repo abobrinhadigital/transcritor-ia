@@ -5,16 +5,31 @@ import shutil
 import torch
 from faster_whisper import WhisperModel
 
-__version__ = "2.1.0"
+__version__ = "2.2.0"
 
 # Carregando bibliotecas da Nvidia (Otimizado para RTX 3050)
 model_size = "medium"
 model = WhisperModel(model_size, device="cuda", compute_type="float16")
 
-# Define as pastas do projeto
-pasta_audios = "audios"
-pasta_processados = os.path.join(pasta_audios, "processados")
-pasta_transcricoes = "transcricoes"
+# Carrega configurações do arquivo .env (Manual para evitar dependências extras)
+config = {}
+caminho_env = os.path.join(os.path.dirname(__file__), ".env")
+if os.path.exists(caminho_env):
+    with open(caminho_env, "r", encoding="utf-8") as f:
+        for linha in f:
+            linha = linha.strip()
+            if linha and not linha.startswith("#") and "=" in linha:
+                chave, valor = linha.split("=", 1)
+                valor = valor.strip()
+                # Remove aspas se existirem
+                if (valor.startswith('"') and valor.endswith('"')) or (valor.startswith("'") and valor.endswith("'")):
+                    valor = valor[1:-1]
+                config[chave.strip()] = valor
+
+# Define as pastas do projeto (Pega do .env ou usa padrões seguros)
+pasta_audios = config.get("NEW_AUDIO_DIR", "audios")
+pasta_processados = config.get("HISTORY_AUDIO_DIR", os.path.join(pasta_audios, "processados"))
+pasta_transcricoes = config.get("NEW_TRANSCRIPTION_DIR", "transcricoes")
 
 # Cria as pastas caso elas ainda não existam
 os.makedirs(pasta_processados, exist_ok=True)

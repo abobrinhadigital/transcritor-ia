@@ -11,7 +11,10 @@ audios/**/*.mp3
 dicionario.txt
 
 # Arquivos de transcrição (ignora os txts gerados)
-transcricoes/*.txt
+transcricoes/**/*.txt
+
+# Variáveis de Ambiente
+.env
 
 # Manter a estrutura das pastas vazias no repositório
 !audios/processados/.gitkeep

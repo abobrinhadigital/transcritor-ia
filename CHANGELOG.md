@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-03-03
+
+### Added
+- Suporte a variáveis de ambiente via arquivo `.env`.
+- Carregamento manual de configurações para evitar dependências extras.
+- Suporte a caminhos absolutos e tratamento de aspas nas configurações de diretórios.
+- Novas variáveis de configuração: `NEW_AUDIO_DIR`, `HISTORY_AUDIO_DIR` e `NEW_TRANSCRIPTION_DIR`.
+
+### Fixed
+- Pequeno "desastre" visual no footer do `README.md`.
+
 ## [2.1.0] - 2026-03-02
 
 ### Added

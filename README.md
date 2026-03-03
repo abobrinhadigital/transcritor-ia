@@ -1,5 +1,5 @@
 # Tomatextor
-> **Versão:** `v2.1.0`
+> **Versão:** `v2.2.0`
 
 Script Python para transcrição automática de arquivos de áudio utilizando **Faster-Whisper**. Otimizado para rodar localmente com aceleração por hardware (NVIDIA CUDA).
 
@@ -48,9 +48,30 @@ Jekyll, venv, Python, Markdown, Pollux, Abobrinator, CLI, GitHub
 
 O script lerá este arquivo automaticamente e o usará como `initial_prompt` para melhorar a precisão da transcrição.
 
+## Configuração (.env)
+
+O Tomatextor usa um arquivo `.env` para gerenciar os caminhos das pastas. Isso permite que ele seja integrado facilmente com outros projetos (como o Abobrinator) ou use caminhos absolutos.
+
+1. Crie um arquivo chamado `.env` na raiz do projeto.
+2. Configure as seguintes variáveis conforme sua necessidade:
+
+```text
+# Exemplo de configuração com caminhos absolutos
+NEW_AUDIO_DIR="/home/usuario/audios/novos"
+HISTORY_AUDIO_DIR="/home/usuario/audios/processados"
+NEW_TRANSCRIPTION_DIR="/home/usuario/transcricoes/novas"
+```
+
+*   `NEW_AUDIO_DIR`: Onde o script procura novos áudios.
+*   `HISTORY_AUDIO_DIR`: Para onde os áudios processados são movidos.
+*   `NEW_TRANSCRIPTION_DIR`: Onde as transcrições `.txt` são salvas.
+
+> [!NOTE]
+> Se você não fornecer um `.env`, o script usará as pastas padrões `audios/`, `audios/processados/` e `transcricoes/`.
+
 ## Como Usar
 
-1. Coloque seus arquivos `.mp3` ou `.m4a` dentro da pasta `audios/`.
+1. Coloque seus arquivos `.mp3` ou `.m4a` dentro da pasta configurada em `NEW_AUDIO_DIR` (Padrão: `audios/`).
 2. Execute o script via shell a partir da raiz do projeto:
 ```fish
 chmod +x tomatextor.sh
