@@ -26,7 +26,7 @@ yay -S cuda cudnn ffmpeg
 
 1. **Clone o repositório e acesse a pasta:**
 ```bash
-git clone https://github.com/abobrinhadigital/tomatextor.git
+git clone https://github.com/abobrinhadigital/tomatextor-python.git
 cd tomatextor
 ```
 2. **Crie e prepare o ambiente virtual:**
