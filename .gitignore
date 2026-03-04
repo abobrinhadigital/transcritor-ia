@@ -1,5 +1,6 @@
 # Ambiente Virtual
 venv/
+.direnv/
 
 # Cache do Python
 __pycache__/
@@ -15,8 +16,11 @@ dicionario.txt
 transcricoes/**/*.txt
 
 # Variáveis de Ambiente
+.envrc
 .env
 
 # Manter a estrutura das pastas vazias no repositório
 !audios/processados/.gitkeep
-!transcricoes/.gitkeep
+!audios/novos/.gitkeep
+!transcricoes/novas/.gitkeep
+!transcricoes/processadas/.gitkeep
